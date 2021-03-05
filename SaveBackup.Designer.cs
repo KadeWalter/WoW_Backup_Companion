@@ -30,29 +30,42 @@ namespace WoW_Backup_Companion
         private void InitializeComponent()
         {
             this.wowFolderButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.wowFolderPathTextBox = new System.Windows.Forms.TextBox();
             this.wowSelectLabel = new System.Windows.Forms.Label();
             this.wowSelectNoteLabel = new System.Windows.Forms.Label();
+            this.backupSelectLabel = new System.Windows.Forms.Label();
+            this.backupFolderPathTextBox = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.gameTypeCheckBoxList = new System.Windows.Forms.CheckedListBox();
+            this.gameTypeLabel = new System.Windows.Forms.Label();
+            this.backupButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // wowFolderButton
             // 
-            this.wowFolderButton.Location = new System.Drawing.Point(820, 175);
+            this.wowFolderButton.FlatAppearance.BorderSize = 0;
+            this.wowFolderButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.wowFolderButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.wowFolderButton.Location = new System.Drawing.Point(708, 175);
             this.wowFolderButton.Name = "wowFolderButton";
-            this.wowFolderButton.Size = new System.Drawing.Size(27, 23);
+            this.wowFolderButton.Size = new System.Drawing.Size(27, 26);
             this.wowFolderButton.TabIndex = 0;
+            this.wowFolderButton.TabStop = false;
             this.wowFolderButton.Text = ">";
             this.wowFolderButton.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // wowFolderPathTextBox
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(12, 175);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(802, 21);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.WordWrap = false;
+            this.wowFolderPathTextBox.Enabled = false;
+            this.wowFolderPathTextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.wowFolderPathTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.wowFolderPathTextBox.Location = new System.Drawing.Point(12, 175);
+            this.wowFolderPathTextBox.Name = "wowFolderPathTextBox";
+            this.wowFolderPathTextBox.ReadOnly = true;
+            this.wowFolderPathTextBox.Size = new System.Drawing.Size(690, 26);
+            this.wowFolderPathTextBox.TabIndex = 1;
+            this.wowFolderPathTextBox.TabStop = false;
+            this.wowFolderPathTextBox.WordWrap = false;
             // 
             // wowSelectLabel
             // 
@@ -70,24 +83,98 @@ namespace WoW_Backup_Companion
             this.wowSelectNoteLabel.AutoSize = true;
             this.wowSelectNoteLabel.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.wowSelectNoteLabel.ForeColor = System.Drawing.Color.White;
-            this.wowSelectNoteLabel.Location = new System.Drawing.Point(12, 199);
+            this.wowSelectNoteLabel.Location = new System.Drawing.Point(12, 204);
             this.wowSelectNoteLabel.Name = "wowSelectNoteLabel";
             this.wowSelectNoteLabel.Size = new System.Drawing.Size(122, 15);
             this.wowSelectNoteLabel.TabIndex = 3;
             this.wowSelectNoteLabel.Text = "wowSelectNoteLabel";
+            // 
+            // backupSelectLabel
+            // 
+            this.backupSelectLabel.AutoSize = true;
+            this.backupSelectLabel.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.backupSelectLabel.ForeColor = System.Drawing.Color.White;
+            this.backupSelectLabel.Location = new System.Drawing.Point(12, 279);
+            this.backupSelectLabel.Name = "backupSelectLabel";
+            this.backupSelectLabel.Size = new System.Drawing.Size(172, 22);
+            this.backupSelectLabel.TabIndex = 5;
+            this.backupSelectLabel.Text = "backupSelectLabel";
+            // 
+            // backupFolderPathTextBox
+            // 
+            this.backupFolderPathTextBox.Enabled = false;
+            this.backupFolderPathTextBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.backupFolderPathTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.backupFolderPathTextBox.Location = new System.Drawing.Point(12, 304);
+            this.backupFolderPathTextBox.Name = "backupFolderPathTextBox";
+            this.backupFolderPathTextBox.Size = new System.Drawing.Size(690, 26);
+            this.backupFolderPathTextBox.TabIndex = 6;
+            this.backupFolderPathTextBox.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(708, 304);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(27, 26);
+            this.button1.TabIndex = 7;
+            this.button1.TabStop = false;
+            this.button1.Text = ">";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // gameTypeCheckBoxList
+            // 
+            this.gameTypeCheckBoxList.CheckOnClick = true;
+            this.gameTypeCheckBoxList.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.gameTypeCheckBoxList.FormattingEnabled = true;
+            this.gameTypeCheckBoxList.Location = new System.Drawing.Point(13, 421);
+            this.gameTypeCheckBoxList.Name = "gameTypeCheckBoxList";
+            this.gameTypeCheckBoxList.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.gameTypeCheckBoxList.Size = new System.Drawing.Size(230, 130);
+            this.gameTypeCheckBoxList.TabIndex = 9;
+            this.gameTypeCheckBoxList.TabStop = false;
+            this.gameTypeCheckBoxList.UseTabStops = false;
+            this.gameTypeCheckBoxList.SelectedIndexChanged += new System.EventHandler(this.gameTypeCheckBoxList_SelectedIndexChanged);
+            // 
+            // gameTypeLabel
+            // 
+            this.gameTypeLabel.AutoSize = true;
+            this.gameTypeLabel.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.gameTypeLabel.ForeColor = System.Drawing.Color.White;
+            this.gameTypeLabel.Location = new System.Drawing.Point(13, 396);
+            this.gameTypeLabel.Name = "gameTypeLabel";
+            this.gameTypeLabel.Size = new System.Drawing.Size(147, 22);
+            this.gameTypeLabel.TabIndex = 10;
+            this.gameTypeLabel.Text = "gameTypeLabel";
+            // 
+            // backupButton
+            // 
+            this.backupButton.Location = new System.Drawing.Point(487, 455);
+            this.backupButton.Name = "backupButton";
+            this.backupButton.Size = new System.Drawing.Size(116, 40);
+            this.backupButton.TabIndex = 12;
+            this.backupButton.TabStop = false;
+            this.backupButton.Text = "backupButton";
+            this.backupButton.UseVisualStyleBackColor = true;
             // 
             // SaveBackup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.BackgroundImage = global::WoW_Backup_Companion.Properties.Resources.wow_torghast;
+            this.BackgroundImage = global::WoW_Backup_Companion.Properties.Resources.wow_sl;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(859, 627);
+            this.ClientSize = new System.Drawing.Size(747, 568);
+            this.Controls.Add(this.backupButton);
+            this.Controls.Add(this.gameTypeLabel);
+            this.Controls.Add(this.gameTypeCheckBoxList);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.backupFolderPathTextBox);
+            this.Controls.Add(this.backupSelectLabel);
             this.Controls.Add(this.wowSelectNoteLabel);
             this.Controls.Add(this.wowSelectLabel);
             this.Controls.Add(this.wowFolderButton);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.wowFolderPathTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "SaveBackup";
@@ -100,8 +187,14 @@ namespace WoW_Backup_Companion
         #endregion
 
         private System.Windows.Forms.Button wowFolderButton;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox wowFolderPathTextBox;
         private System.Windows.Forms.Label wowSelectLabel;
         private System.Windows.Forms.Label wowSelectNoteLabel;
+        private System.Windows.Forms.Label backupSelectLabel;
+        private System.Windows.Forms.TextBox backupFolderPathTextBox;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckedListBox gameTypeCheckBoxList;
+        private System.Windows.Forms.Label gameTypeLabel;
+        private System.Windows.Forms.Button backupButton;
     }
 }

@@ -63,6 +63,16 @@ namespace WoW_Backup_Companion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap wow_sl {
+            get {
+                object obj = ResourceManager.GetObject("wow_sl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap wow_torghast {
             get {
                 object obj = ResourceManager.GetObject("wow_torghast", resourceCulture);
