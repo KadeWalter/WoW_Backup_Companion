@@ -40,6 +40,7 @@ namespace WoW_Backup_Companion
             this.gameTypeLabel = new System.Windows.Forms.Label();
             this.backupButton = new System.Windows.Forms.Button();
             this.copyingProgressBar = new System.Windows.Forms.ProgressBar();
+            this.shouldSaveScreenshotsCheckbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // wowFolderButton
@@ -152,7 +153,7 @@ namespace WoW_Backup_Companion
             // 
             // backupButton
             // 
-            this.backupButton.Location = new System.Drawing.Point(486, 421);
+            this.backupButton.Location = new System.Drawing.Point(473, 440);
             this.backupButton.Name = "backupButton";
             this.backupButton.Size = new System.Drawing.Size(116, 40);
             this.backupButton.TabIndex = 12;
@@ -163,10 +164,23 @@ namespace WoW_Backup_Companion
             // 
             // copyingProgressBar
             // 
-            this.copyingProgressBar.Location = new System.Drawing.Point(406, 486);
+            this.copyingProgressBar.Location = new System.Drawing.Point(391, 507);
             this.copyingProgressBar.Name = "copyingProgressBar";
             this.copyingProgressBar.Size = new System.Drawing.Size(279, 23);
             this.copyingProgressBar.TabIndex = 13;
+            // 
+            // shouldSaveScreenshotsCheckbox
+            // 
+            this.shouldSaveScreenshotsCheckbox.AutoSize = true;
+            this.shouldSaveScreenshotsCheckbox.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.shouldSaveScreenshotsCheckbox.ForeColor = System.Drawing.Color.White;
+            this.shouldSaveScreenshotsCheckbox.Location = new System.Drawing.Point(12, 536);
+            this.shouldSaveScreenshotsCheckbox.Name = "shouldSaveScreenshotsCheckbox";
+            this.shouldSaveScreenshotsCheckbox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.shouldSaveScreenshotsCheckbox.Size = new System.Drawing.Size(105, 22);
+            this.shouldSaveScreenshotsCheckbox.TabIndex = 14;
+            this.shouldSaveScreenshotsCheckbox.Text = "checkBox1";
+            this.shouldSaveScreenshotsCheckbox.UseVisualStyleBackColor = true;
             // 
             // SaveBackup
             // 
@@ -176,6 +190,7 @@ namespace WoW_Backup_Companion
             this.BackgroundImage = global::WoW_Backup_Companion.Properties.Resources.wow_sl;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(747, 568);
+            this.Controls.Add(this.shouldSaveScreenshotsCheckbox);
             this.Controls.Add(this.copyingProgressBar);
             this.Controls.Add(this.backupButton);
             this.Controls.Add(this.gameTypeLabel);
@@ -209,5 +224,6 @@ namespace WoW_Backup_Companion
         private System.Windows.Forms.Label gameTypeLabel;
         private System.Windows.Forms.Button backupButton;
         private System.Windows.Forms.ProgressBar copyingProgressBar;
+        private System.Windows.Forms.CheckBox shouldSaveScreenshotsCheckbox;
     }
 }

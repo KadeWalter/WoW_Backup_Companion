@@ -37,6 +37,10 @@ namespace WoW_Backup_Companion
 
             backupButton.Text = "Backup";
 
+            shouldSaveScreenshotsCheckbox.Checked = false;
+            shouldSaveScreenshotsCheckbox.Text = "Save Screenshots?";
+            shouldSaveScreenshotsCheckbox.BackColor = Color.Transparent;
+
             wowFolderPathTextBox.Text = Settings.Default["WorldOfWarcraftFilePath"].ToString();
             backupFolderPathTextBox.Text = Settings.Default["GameBackupFolderFilePath"].ToString();
 
@@ -173,16 +177,19 @@ namespace WoW_Backup_Companion
                 }
                 copyingProgressBar.Increment(1);
 
-                // Backup Screenshots for fun
-                // source directory = D:\\Blizzard\\WorldOfWarcraft\\_<GAME TYPE>_\\Screenshots
-                wowGameDirectoryPath = String.Format("{0}\\_{1}_\\Screenshots", wowFP, gameType);
-                if (System.IO.Directory.Exists(wowGameDirectoryPath))
+                // Backup Screenshots if selected
+                if (shouldSaveScreenshotsCheckbox.Checked)
                 {
-                    diGameDirectory = new DirectoryInfo(wowGameDirectoryPath);
-                    // target directory = C:\\Desktop\\VS Backups\\03_28_2021\\<GAME TYPE>\\Screenshots
-                    wowGameBackupPath = String.Format("{0}\\{1}\\Screenshots", dateFolderPath, gameType);
-                    diBackupDirectory = new DirectoryInfo(wowGameBackupPath);
-                    CopyEverything(diGameDirectory, diBackupDirectory);
+                    // source directory = D:\\Blizzard\\WorldOfWarcraft\\_<GAME TYPE>_\\Screenshots
+                    wowGameDirectoryPath = String.Format("{0}\\_{1}_\\Screenshots", wowFP, gameType);
+                    if (System.IO.Directory.Exists(wowGameDirectoryPath))
+                    {
+                        diGameDirectory = new DirectoryInfo(wowGameDirectoryPath);
+                        // target directory = C:\\Desktop\\VS Backups\\03_28_2021\\<GAME TYPE>\\Screenshots
+                        wowGameBackupPath = String.Format("{0}\\{1}\\Screenshots", dateFolderPath, gameType);
+                        diBackupDirectory = new DirectoryInfo(wowGameBackupPath);
+                        CopyEverything(diGameDirectory, diBackupDirectory);
+                    }
                 }
                 copyingProgressBar.Increment(1);
             }
