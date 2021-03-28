@@ -139,6 +139,7 @@ namespace WoW_Backup_Companion
             // For each option selected, create a new folder in the date folder and copy the contents from the wow folder
             int totalProgress = (gameTypeCheckBoxList.CheckedItems.Count * 3);
             copyingProgressBar.Maximum = totalProgress;
+            copyingProgressBar.Value = 0;
             foreach (String gameType in gameTypeCheckBoxList.CheckedItems)
             {
                 String wowGameDirectoryPath = "";
@@ -149,31 +150,40 @@ namespace WoW_Backup_Companion
                 // Backup WTF Folder
                 // source directory = D:\\Blizzard\\WorldOfWarcraft\\_<GAME TYPE>_\\WTF
                 wowGameDirectoryPath = String.Format("{0}\\_{1}_\\WTF", wowFP, gameType);
-                diGameDirectory = new DirectoryInfo(wowGameDirectoryPath);
-                // target directory = C:\\Desktop\\VS Backups\\03_28_2021\\<GAME TYPE>\\WTF
-                wowGameBackupPath = String.Format("{0}\\{1}\\WTF", dateFolderPath, gameType);
-                diBackupDirectory = new DirectoryInfo(wowGameBackupPath);
-                CopyEverything(diGameDirectory, diBackupDirectory);
+                if (System.IO.Directory.Exists(wowGameDirectoryPath))
+                {
+                    diGameDirectory = new DirectoryInfo(wowGameDirectoryPath);
+                    // target directory = C:\\Desktop\\VS Backups\\03_28_2021\\<GAME TYPE>\\WTF
+                    wowGameBackupPath = String.Format("{0}\\{1}\\WTF", dateFolderPath, gameType);
+                    diBackupDirectory = new DirectoryInfo(wowGameBackupPath);
+                    CopyEverything(diGameDirectory, diBackupDirectory);
+                }
                 copyingProgressBar.Increment(1);
 
                 // Backup Interface Folder
                 // source directory = D:\\Blizzard\\WorldOfWarcraft\\_<GAME TYPE>_\\Interface
                 wowGameDirectoryPath = String.Format("{0}\\_{1}_\\Interface", wowFP, gameType);
-                diGameDirectory = new DirectoryInfo(wowGameDirectoryPath);
-                // target directory = C:\\Desktop\\VS Backups\\03_28_2021\\<GAME TYPE>\\Interface
-                wowGameBackupPath = String.Format("{0}\\{1}\\Interface", dateFolderPath, gameType);
-                diBackupDirectory = new DirectoryInfo(wowGameBackupPath);
-                CopyEverything(diGameDirectory, diBackupDirectory);
+                if (System.IO.Directory.Exists(wowGameDirectoryPath))
+                {
+                    diGameDirectory = new DirectoryInfo(wowGameDirectoryPath);
+                    // target directory = C:\\Desktop\\VS Backups\\03_28_2021\\<GAME TYPE>\\Interface
+                    wowGameBackupPath = String.Format("{0}\\{1}\\Interface", dateFolderPath, gameType);
+                    diBackupDirectory = new DirectoryInfo(wowGameBackupPath);
+                    CopyEverything(diGameDirectory, diBackupDirectory);
+                }
                 copyingProgressBar.Increment(1);
 
                 // Backup Screenshots for fun
                 // source directory = D:\\Blizzard\\WorldOfWarcraft\\_<GAME TYPE>_\\Screenshots
                 wowGameDirectoryPath = String.Format("{0}\\_{1}_\\Screenshots", wowFP, gameType);
-                diGameDirectory = new DirectoryInfo(wowGameDirectoryPath);
-                // target directory = C:\\Desktop\\VS Backups\\03_28_2021\\<GAME TYPE>\\Screenshots
-                wowGameBackupPath = String.Format("{0}\\{1}\\Screenshots", dateFolderPath, gameType);
-                diBackupDirectory = new DirectoryInfo(wowGameBackupPath);
-                CopyEverything(diGameDirectory, diBackupDirectory);
+                if (System.IO.Directory.Exists(wowGameDirectoryPath))
+                {
+                    diGameDirectory = new DirectoryInfo(wowGameDirectoryPath);
+                    // target directory = C:\\Desktop\\VS Backups\\03_28_2021\\<GAME TYPE>\\Screenshots
+                    wowGameBackupPath = String.Format("{0}\\{1}\\Screenshots", dateFolderPath, gameType);
+                    diBackupDirectory = new DirectoryInfo(wowGameBackupPath);
+                    CopyEverything(diGameDirectory, diBackupDirectory);
+                }
                 copyingProgressBar.Increment(1);
             }
 
