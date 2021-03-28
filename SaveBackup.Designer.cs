@@ -35,10 +35,11 @@ namespace WoW_Backup_Companion
             this.wowSelectNoteLabel = new System.Windows.Forms.Label();
             this.backupSelectLabel = new System.Windows.Forms.Label();
             this.backupFolderPathTextBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.backupFolderButton = new System.Windows.Forms.Button();
             this.gameTypeCheckBoxList = new System.Windows.Forms.CheckedListBox();
             this.gameTypeLabel = new System.Windows.Forms.Label();
             this.backupButton = new System.Windows.Forms.Button();
+            this.copyingProgressBar = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // wowFolderButton
@@ -53,6 +54,7 @@ namespace WoW_Backup_Companion
             this.wowFolderButton.TabStop = false;
             this.wowFolderButton.Text = ">";
             this.wowFolderButton.UseVisualStyleBackColor = true;
+            this.wowFolderButton.Click += new System.EventHandler(this.wowFolderButton_Click);
             // 
             // wowFolderPathTextBox
             // 
@@ -111,16 +113,17 @@ namespace WoW_Backup_Companion
             this.backupFolderPathTextBox.TabIndex = 6;
             this.backupFolderPathTextBox.TabStop = false;
             // 
-            // button1
+            // backupFolderButton
             // 
-            this.button1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(708, 304);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(27, 26);
-            this.button1.TabIndex = 7;
-            this.button1.TabStop = false;
-            this.button1.Text = ">";
-            this.button1.UseVisualStyleBackColor = true;
+            this.backupFolderButton.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.backupFolderButton.Location = new System.Drawing.Point(708, 304);
+            this.backupFolderButton.Name = "backupFolderButton";
+            this.backupFolderButton.Size = new System.Drawing.Size(27, 26);
+            this.backupFolderButton.TabIndex = 7;
+            this.backupFolderButton.TabStop = false;
+            this.backupFolderButton.Text = ">";
+            this.backupFolderButton.UseVisualStyleBackColor = true;
+            this.backupFolderButton.Click += new System.EventHandler(this.backupFolderButton_Click);
             // 
             // gameTypeCheckBoxList
             // 
@@ -130,7 +133,7 @@ namespace WoW_Backup_Companion
             this.gameTypeCheckBoxList.Location = new System.Drawing.Point(13, 421);
             this.gameTypeCheckBoxList.Name = "gameTypeCheckBoxList";
             this.gameTypeCheckBoxList.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.gameTypeCheckBoxList.Size = new System.Drawing.Size(230, 130);
+            this.gameTypeCheckBoxList.Size = new System.Drawing.Size(230, 109);
             this.gameTypeCheckBoxList.TabIndex = 9;
             this.gameTypeCheckBoxList.TabStop = false;
             this.gameTypeCheckBoxList.UseTabStops = false;
@@ -149,13 +152,21 @@ namespace WoW_Backup_Companion
             // 
             // backupButton
             // 
-            this.backupButton.Location = new System.Drawing.Point(487, 455);
+            this.backupButton.Location = new System.Drawing.Point(486, 421);
             this.backupButton.Name = "backupButton";
             this.backupButton.Size = new System.Drawing.Size(116, 40);
             this.backupButton.TabIndex = 12;
             this.backupButton.TabStop = false;
             this.backupButton.Text = "backupButton";
             this.backupButton.UseVisualStyleBackColor = true;
+            this.backupButton.Click += new System.EventHandler(this.backupButton_Click);
+            // 
+            // copyingProgressBar
+            // 
+            this.copyingProgressBar.Location = new System.Drawing.Point(406, 486);
+            this.copyingProgressBar.Name = "copyingProgressBar";
+            this.copyingProgressBar.Size = new System.Drawing.Size(279, 23);
+            this.copyingProgressBar.TabIndex = 13;
             // 
             // SaveBackup
             // 
@@ -165,10 +176,11 @@ namespace WoW_Backup_Companion
             this.BackgroundImage = global::WoW_Backup_Companion.Properties.Resources.wow_sl;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(747, 568);
+            this.Controls.Add(this.copyingProgressBar);
             this.Controls.Add(this.backupButton);
             this.Controls.Add(this.gameTypeLabel);
             this.Controls.Add(this.gameTypeCheckBoxList);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.backupFolderButton);
             this.Controls.Add(this.backupFolderPathTextBox);
             this.Controls.Add(this.backupSelectLabel);
             this.Controls.Add(this.wowSelectNoteLabel);
@@ -192,9 +204,10 @@ namespace WoW_Backup_Companion
         private System.Windows.Forms.Label wowSelectNoteLabel;
         private System.Windows.Forms.Label backupSelectLabel;
         private System.Windows.Forms.TextBox backupFolderPathTextBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button backupFolderButton;
         private System.Windows.Forms.CheckedListBox gameTypeCheckBoxList;
         private System.Windows.Forms.Label gameTypeLabel;
         private System.Windows.Forms.Button backupButton;
+        private System.Windows.Forms.ProgressBar copyingProgressBar;
     }
 }
